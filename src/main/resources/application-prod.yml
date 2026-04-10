@@ -1,3 +1,10 @@
+server:
+  port: 8080
+  servlet:
+    session:
+      cookie:
+        secure: true
+
 spring:
   config:
     activate:
@@ -15,9 +22,3 @@ spring:
 
   thymeleaf:
     cache: true
-
-server:
-  servlet:
-    session:
-      cookie:
-        secure: true
