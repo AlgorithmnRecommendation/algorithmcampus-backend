@@ -61,7 +61,7 @@ jobs:
     name: Deploy to Dev Server
     needs: ci
     if: github.event_name == 'push'
-    runs-on: [self-hosted, linux, x64, dev]
+    runs-on: [self-hosted, linux, x64]
 
     steps:
       - name: 배포 서버에서 Docker 이미지 pull
@@ -77,6 +77,7 @@ jobs:
           docker run -d \
             --name $CONTAINER_NAME \
             --restart unless-stopped \
+            -e SPRING_PROFILES_ACTIVE=dev\ 
             -p 8080:8080 \
             $IMAGE_NAME:$IMAGE_TAG
 
