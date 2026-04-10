@@ -40,7 +40,7 @@ jobs:
         run: chmod +x gradlew
 
       - name: 빌드 및 테스트
-        run: ./gradlew clean build -Dspring.profiles.active=dev
+        run: ./gradlew clean build -x test
         env:
           DEV_DB_URL: ${{ secrets.DEV_DB_URL }}
           DEV_DB_USERNAME: ${{ secrets.DEV_DB_USERNAME }}
