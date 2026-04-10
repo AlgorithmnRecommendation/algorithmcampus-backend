@@ -1,4 +1,4 @@
-package com.algorithmcampus.global.exception;
+package com.algorithmcampus.global.common.exception;
 
 public record ErrorResponse (
         String code,

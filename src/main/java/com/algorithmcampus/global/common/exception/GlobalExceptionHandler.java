@@ -1,6 +1,5 @@
-package com.algorithmcampus.global.exception;
+package com.algorithmcampus.global.common.exception;
 
-import com.algorithmcampus.global.exception.common.CommonError;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.FieldError;

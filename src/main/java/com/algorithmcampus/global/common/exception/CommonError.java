@@ -1,6 +1,5 @@
-package com.algorithmcampus.global.exception.common;
+package com.algorithmcampus.global.common.exception;
 
-import com.algorithmcampus.global.exception.ErrorCode;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
