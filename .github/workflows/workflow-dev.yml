@@ -40,7 +40,11 @@ jobs:
         run: chmod +x gradlew
 
       - name: 빌드 및 테스트
-        run: ./gradlew clean build
+        run: ./gradlew clean build -Dspring.profiles.active=dev
+        env:
+          DEV_DB_URL: ${{ secrets.DEV_DB_URL }}
+          DEV_DB_USERNAME: ${{ secrets.DEV_DB_USERNAME }}
+          DEV_DB_PASSWORD: ${{ secrets.DEV_DB_PASSWORD }}
 
       - name: DockerHub 로그인
         if: github.event_name == 'push'

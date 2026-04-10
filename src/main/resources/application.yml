@@ -14,7 +14,7 @@ spring:
   application:
     name: AlgorithmCampus
   profiles:
-    default: prod
+    default: dev
     group:
       local: local
       dev: dev
