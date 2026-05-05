@@ -14,6 +14,7 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Pattern;
@@ -173,7 +174,6 @@ public class ProblemController {
                     required = true
             )
             @PathVariable
-            @NotNull(message = "문제 번호는 필수입니다.")
             @Min(value = 1, message = "문제 번호는 1 이상이어야 합니다.")
             Long problemId
     ) {
@@ -317,6 +317,7 @@ public class ProblemController {
             )
             @RequestParam(defaultValue = "20")
             @Min(value = 1, message = "페이지 크기는 1 이상이어야 합니다.")
+            @Max(value = 100, message = "페이지 크기는 10 이하여야 합니다.")
             int size
     ) {
         List<ProblemResponse> response = problemService.getProblems(tag, difficulty, page, size);
