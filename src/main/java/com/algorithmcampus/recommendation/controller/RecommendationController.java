@@ -43,7 +43,7 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @Tag(name = "Recommendation", description = "추천 API")
 @RestController
-@RequestMapping("/recommendations")
+@RequestMapping("/api/v1/recommendations")
 @RequiredArgsConstructor
 public class RecommendationController {
 
