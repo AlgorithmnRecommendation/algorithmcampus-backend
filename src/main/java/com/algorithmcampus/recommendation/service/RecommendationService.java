@@ -1,6 +1,5 @@
 package com.algorithmcampus.recommendation.service;
 
-import com.algorithmcampus.recommendation.dto.request.RecommendationRequest;
 import com.algorithmcampus.recommendation.dto.response.RecommendationResponse;
 import org.springframework.stereotype.Service;
 
@@ -17,7 +16,8 @@ import java.util.List;
 @Service
 public class RecommendationService {
 
-    public List<RecommendationResponse> getRecommendations(RecommendationRequest request) {
+    public List<RecommendationResponse> getRecommendations(Long userId) {
         return Collections.emptyList();
     }
 }
+
