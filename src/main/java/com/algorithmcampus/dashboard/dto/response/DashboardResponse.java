@@ -23,8 +23,6 @@ import java.util.List;
 public class DashboardResponse {
     @Schema(description = "총 풀이 수", example = "127")
     private Integer totalSolvedCount;
-    @Schema(description = "연속 풀이 일수", example = "5")
-    private Integer streakCount;
     @Schema(description = "대시보드 요약 문구", example = "이번 주 8문제를 풀이 완료했습니다.")
     private String summaryMessage;
     @Schema(description = "추천 문제 안내 문구", example = "오늘의 추천 문제 25개가 준비되었습니다.")

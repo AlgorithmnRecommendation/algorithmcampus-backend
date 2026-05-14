@@ -34,7 +34,7 @@ public class DashboardController {
 
     @Operation(
             summary = "대시보드 조회",
-            description = "사용자의 총 풀이 수, 연속 풀이 일수, 추천 문제, 유형별 분석, 최근 풀이 기록을 조회합니다."
+            description = "사용자의 총 풀이 수, 추천 문제, 유형별 분석, 최근 풀이 기록을 조회합니다."
     )
     @ApiResponses(value = {
             @ApiResponse(
@@ -51,7 +51,6 @@ public class DashboardController {
                                               "message": "요청이 성공했습니다.",
                                               "data": {
                                                 "totalSolvedCount": 127,
-                                                "streakCount": 5,
                                                 "summaryMessage": "이번 주 8문제를 풀이 완료했습니다.",
                                                 "recommendationMessage": "오늘의 추천 문제 25개가 준비되었습니다.",
                                                 "recommendedProblems": [

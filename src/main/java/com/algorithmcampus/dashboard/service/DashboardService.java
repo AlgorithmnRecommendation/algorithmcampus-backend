@@ -19,7 +19,6 @@ public class DashboardService {
     public DashboardResponse getDashboard() {
         return DashboardResponse.builder()
                 .totalSolvedCount(0)
-                .streakCount(0)
                 .summaryMessage("")
                 .recommendationMessage("")
                 .recommendedProblems(Collections.emptyList())
