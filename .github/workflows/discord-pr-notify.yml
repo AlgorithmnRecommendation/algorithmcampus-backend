@@ -1,0 +1,40 @@
+name: Discord PR Notify
+
+on:
+  pull_request:
+    types: [opened, reopened, ready_for_review, closed]
+  pull_request_review:
+    types: [submitted]
+
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Send Discord notification
+        run: |
+          if [ "${{ github.event_name }}" = "pull_request" ]; then
+            if [ "${{ github.event.action }}" = "opened" ]; then
+              MESSAGE="📢 새로운 PR이 생성되었습니다!\n\n제목: ${{ github.event.pull_request.title }}\n작성자: ${{ github.event.pull_request.user.login }}\n브랜치: ${{ github.event.pull_request.head.ref }} → ${{ github.event.pull_request.base.ref }}\n링크: ${{ github.event.pull_request.html_url }}"
+
+            elif [ "${{ github.event.action }}" = "reopened" ]; then
+              MESSAGE="🔄 PR이 다시 열렸습니다!\n\n제목: ${{ github.event.pull_request.title }}\n작성자: ${{ github.event.pull_request.user.login }}\n링크: ${{ github.event.pull_request.html_url }}"
+
+            elif [ "${{ github.event.action }}" = "ready_for_review" ]; then
+              MESSAGE="👀 Draft PR이 리뷰 준비 상태로 변경되었습니다!\n\n제목: ${{ github.event.pull_request.title }}\n작성자: ${{ github.event.pull_request.user.login }}\n링크: ${{ github.event.pull_request.html_url }}"
+
+            elif [ "${{ github.event.action }}" = "closed" ] && [ "${{ github.event.pull_request.merged }}" = "true" ]; then
+              MESSAGE="✅ PR이 merge되었습니다!\n\n제목: ${{ github.event.pull_request.title }}\n작성자: ${{ github.event.pull_request.user.login }}\n브랜치: ${{ github.event.pull_request.head.ref }} → ${{ github.event.pull_request.base.ref }}\n링크: ${{ github.event.pull_request.html_url }}"
+
+            else
+              exit 0
+            fi
+
+          elif [ "${{ github.event_name }}" = "pull_request_review" ]; then
+            MESSAGE="💬 PR 리뷰가 등록되었습니다!\n\nPR 제목: ${{ github.event.pull_request.title }}\n리뷰어: ${{ github.event.review.user.login }}\n리뷰 상태: ${{ github.event.review.state }}\n링크: ${{ github.event.pull_request.html_url }}"
+          fi
+
+          curl -H "Content-Type: application/json" \
+            -X POST \
+            -d "{\"content\":\"$MESSAGE\"}" \
+            "${{ secrets.DISCORD_WEBHOOK_URL }}"
