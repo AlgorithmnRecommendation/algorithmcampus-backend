@@ -1,0 +1,4 @@
+interface:
+  display_name: "API Design Principles"
+  short_description: "Review API design, SOLID, and responsibilities"
+  default_prompt: "Use $api-design-principles to review this API design for object-oriented boundaries, SOLID, and responsibility separation."
