@@ -44,7 +44,7 @@ Create or update a GitHub Pull Request while organizing commits, branches, label
    - If no PR exists, create a new PR.
 
 4. Prepare PR content.
-   - Compare against `dev` using `git log dev..HEAD --oneline` and `git diff dev...HEAD`.
+   - Compare against `develop` using `git log dev..HEAD --oneline` and `git diff dev...HEAD`.
    - Read `.github/pull_request_template.md` if present.
    - Use `references/create-pr.md` for labels, reviewer selection, title/body construction, update behavior, and error handling.
 
