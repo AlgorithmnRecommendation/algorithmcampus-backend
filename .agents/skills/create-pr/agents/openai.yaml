@@ -1,0 +1,4 @@
+interface:
+  display_name: "Create PR"
+  short_description: "Create or update GitHub PRs with smart commits"
+  default_prompt: "Use $create-pr to organize commits, push this branch, and create or update a Korean GitHub Pull Request."
