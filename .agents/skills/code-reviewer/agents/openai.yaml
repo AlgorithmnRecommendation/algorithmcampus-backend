@@ -1,0 +1,4 @@
+interface:
+  display_name: "Code Reviewer"
+  short_description: "Review Spring Boot, JPA, DDD, and SOLID design"
+  default_prompt: "Use $code-reviewer to review this Spring Boot/JPA code for DDD boundaries, SOLID, rich domain modeling, service size, and JPA usage."
